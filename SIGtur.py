@@ -6,6 +6,7 @@ from funcoes import*
 dicionario_turma = pegar_dicionario('turmas')
 dicionario_professor = pegar_dicionario('professores')
 dicionario_aluno = pegar_dicionario('alunos')
+#teste
 
 while True:
     escolha = menu_principal()
