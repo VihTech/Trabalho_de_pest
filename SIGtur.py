@@ -1,6 +1,8 @@
 from menus import*
 from funcoes import*
 
+#teste
+
 # Dicionarios
 
 dicionario_turma = dict()
