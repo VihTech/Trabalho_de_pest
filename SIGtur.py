@@ -40,16 +40,17 @@ while True:
                 while True:
                     nome = input('\n>>> Digite o nome do professor que deseja adicionar: ')
                     matricula = int(input(f'>>> Digite a matricula do professor {nome}: '))
-                    if adicionar_atualizar(dicionario_professor, nome, matricula):
+                    retorno = adicionar_atualizar(dicionario_professor, nome, matricula)
+                    if retorno == 'concluido':
                         print('\n --- Cadastro realizado com sucesso ---')
                         break
                     else:
-                        print('\n --- O nome deve ser composto e não pode conter números ---')
+                        print(retorno)
 
                 
             elif escolha_do_professor == '2':
                 while True:
-                    nome = input('\n>>> Digite o nome do professor que deseja adicionar: ')
+                    nome = input('\n>>> Digite o nome do professor que deseja editar: ')
                     matricula = int(input(f'>>> Digite a matricula do professor {nome}: '))
                     if adicionar_atualizar(dicionario_professor, nome, matricula):
                         print('\n --- Cadastro realizado com sucesso ---')
