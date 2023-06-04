@@ -1,8 +1,7 @@
 import json
 
 def adicionar_atualizar(dicionario, nome, matricula):
-
-    if len(nome.split()) < 2 or nome.isnumeric():
+    if len(nome.split()) < 2 or nome.isalnum():
         return '\n--- O nome deve ser composto e não pode conter números ---'
 
     else:  
@@ -13,7 +12,8 @@ def adicionar_atualizar(dicionario, nome, matricula):
             dicionario[matricula] = nome
             return True
     
-def visualizar(dicionario):
+def visualizar(dicionario, tabela):
+    print(f'========= {tabela:^16} =========')
     print('=-' * 18 + '=')
     print(f"{'|Nome:':<20} {'|Matricula:':>16}")
     for itens, valores in dicionario.items():    
@@ -21,11 +21,11 @@ def visualizar(dicionario):
         print(f'|{valores:<24} |{itens:>5}')
     print('=-' * 18 + '=\n')
 
-def tratamento_repetido(dicionario, nome):
-    if nome not in dicionario:
-        return False
-    else:
+def tratamento_repetido(dicionario, matricula):
+    if matricula not in dicionario:
         return True
+    else:
+        return False
 
 def salvar_dicionarios(dicionario, nome_do_arquivo):
     with open(f'{nome_do_arquivo}.json', 'w') as file:
@@ -44,4 +44,9 @@ def valor_existente(valor, dicionario):
 def excluir(dicionario, matricula, nome_do_arquivo):
     dicionario.pop(matricula)
     salvar_dicionarios(dicionario, nome_do_arquivo)
+
+def criar_turma(dicionario, disciplina, professor, lista_alunos):
+    dicionario_vazio = {}
+    dicionario_vazio[professor] = lista_alunos
+    dicionario[disciplina] = dicionario_vazio
 
